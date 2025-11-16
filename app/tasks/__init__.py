@@ -1,0 +1,1 @@
+from app.tasks.fibonacci import FibonacciTask
