@@ -1,3 +1,4 @@
+from app.database import Base
 from sqlalchemy import Column, Integer, String, Text, DateTime, Enum as SQLEnum
 from sqlalchemy.sql import func
 import enum
@@ -8,11 +9,16 @@ class TaskStatus(enum.Enum):
     COMPLETED = "completed"
     FAILED = "failed"
 
-
-
 class Task(Base):
     __tablename__ = "tasks"
-
+    
     id = Column(Integer, primary_key=True)
-    priority = Column(Integer, index=True)
-    status = Column(Integer, index=True) # pending=0, running=1, completed=2, failed=3 (?)
+    task_type = Column(String(50), nullable=False, index=True)
+    input_data = Column(Text, nullable=True)
+    result = Column(Text, nullable=True)
+    
+    status = Column(SQLEnum(TaskStatus), index=True, default=TaskStatus.PENDING)
+    priority = Column(Integer, index=True, default=0)
+    
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), onupdate=func.now())
