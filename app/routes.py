@@ -14,8 +14,11 @@ router = APIRouter(prefix="/tasks", tags=["tasks"])
 @router.post("/", response_model=TaskResponse, status_code=201)
 def create_task(task_data: TaskCreate, db: Session = Depends(get_db)):
     if task_data.task_type not in TASK_REGISTRY:
-        raise HTTPException(status_code=400, detail="Unknown task_type")
-
+        raise HTTPException(
+            status_code=400, 
+            detail=f"Unknown task_type. Available: {list(TASK_REGISTRY.keys())}"
+        )
+            
     task = Task(
         task_type=task_data.task_type,
         input_data=json.dumps(task_data.input_data),
