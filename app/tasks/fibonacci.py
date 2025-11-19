@@ -3,7 +3,7 @@ from app.tasks.base import BaseTask
 class FibonacciTask(BaseTask):
     def execute(self, input_data: dict) -> dict:
         n = input_data["n"]
-        if not isinstance(n, int) or n < 0 or n > 100:
+        if not isinstance(n, int) or not 0 <= n <= 100:
             raise ValueError("'n' must be integer 0-100")
         
         a, b = 0, 1
