@@ -87,17 +87,12 @@ Response after processing:
 ## Demo & Utilities
 
 ### Demo Tool
-Creates m random tasks, spawns n workers, and displays real-time proccesing of the tasks:
 ```bash
 python demo.py --tasks m --workers n
 ```
 
 ### Basic database management
-View last n tasks:
 ```bash
 python manage_db.py show 10
-```
-Clear first n tasks:
-```bash
 python manage_db.py clear 100
-```b
+```
