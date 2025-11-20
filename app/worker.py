@@ -70,17 +70,6 @@ def run_worker():
             db.close()
 
 
-def run_worker_pool(num_workers: int = 3):
-    logger.info(f"Starting worker pool with {num_workers} threads...")
-    
-    with ThreadPoolExecutor(max_workers=num_workers) as executor:
-        futures = [executor.submit(run_worker) for _ in range(num_workers)]
-        
-        try:
-            for future in futures:
-                future.result()
-        except KeyboardInterrupt:
-            logger.info("Shutting down worker pool...")
 
 if __name__ == "__main__":
     run_worker()
