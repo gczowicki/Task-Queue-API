@@ -27,7 +27,7 @@ docker-compose up -d
 ### 2. Install dependencies
 ```bash
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 ### 3. Initialize database
@@ -51,7 +51,7 @@ Run multiple workers in separate terminals to process tasks simultaneously.
 ## Usage
 
 ### Create a task
-
+```bash
 curl -X POST http://localhost:8000/tasks/ \
   -H "Content-Type: application/json" \
   -d '{
@@ -59,9 +59,9 @@ curl -X POST http://localhost:8000/tasks/ \
     "input_data": {"n": 10},
     "priority": 4
   }'
-
+```
 Response:
-
+```json
 {
   "id": 1,
   "task_type": "FibonacciTask",
@@ -69,13 +69,13 @@ Response:
   "priority": 4,
   "created_at": "2024-01-15T10:30:00"
 }
-
+```
 ### Check task status
-
+```bash
 curl http://localhost:8000/tasks/1
-
+```
 Response after processing:
-
+```json
 {
   "id": 1,
   "task_type": "FibonacciTask",
@@ -83,19 +83,21 @@ Response after processing:
   "result": "{\"result\": 55}",
   "priority": 4
 }
-
+```
 ## Demo & Utilities
 
 ### Demo Tool
+Creates m random tasks, spawns n workers, and displays real-time proccesing of the tasks:
 ```bash
-python demo.py --tasks 500 --workers 3
+python demo.py --tasks m --workers n
 ```
-Creates 500 random tasks, spawns 3 worker processes and displays real-time progress.
 
 ### Basic database management
-
-View last N tasks:
+View last n tasks:
+```bash
 python manage_db.py show 10
-
-Clear first N tasks:
+```
+Clear first n tasks:
+```bash
 python manage_db.py clear 100
+```b
