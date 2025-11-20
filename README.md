@@ -88,7 +88,7 @@ Response after processing:
 
 ### Demo Tool
 ```bash
-python demo.py --tasks m --workers n
+python demo.py --tasks 500 --workers 10
 ```
 
 ### Basic database management
