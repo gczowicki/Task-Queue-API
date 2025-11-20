@@ -106,38 +106,3 @@ python manage_db.py show 10
 
 Clear first N tasks:
 python manage_db.py clear 100
-
-## Project Structure
-
-Task-Queue-API/
-├── app/
-│   ├── tasks/
-│   │   ├── __init__.py
-│   │   ├── base.py
-│   │   ├── count_primes.py
-│   │   ├── fibonacci.py
-│   │   ├── collatz.py
-│   │   └── registry.py
-│   ├── __init__.py
-│   ├── config.py
-│   ├── database.py
-│   ├── models.py
-│   ├── main.py
-│   ├── routes.py
-│   ├── schemas.py
-│   ├── redis_client.py
-│   └── worker.py
-├── .gitignore
-├── demo.py
-├── docker-compose.yml
-├── init_db.py
-├── manage_db.py
-├── README.md
-├── requirements.txt
-
-Key files:
-- base.py - Abstract base class for tasks
-- registry.py - Finds all task classes using BaseTask.__subclasses__()
-- worker.py - Worker logic for checking queues and processing tasks
-- redis_client.py - Priority queue operations (push_task, pop_task)
-- models.py - Task database models
