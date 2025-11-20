@@ -10,15 +10,8 @@ A distributed task-processing system built with the following main components: 1
 - SQLAlchemy - ORM
 - Docker - containerized PostgreSQL and Redis
 
-## Architecture
+## System Overview
 
-User → FastAPI → PostgreSQL (creates task record)
-         ↓
-       Redis (task ID pushed to priority queue: 1-5)
-         ↓
-       Workers → Check queues → Process task → Update PostgreSQL
-
-Flow:
 1. POST request to API creates a task record in PostgreSQL
 2. Task ID is pushed to the appropriate Redis queue based on priority (1=lowest, 5=highest)
 3. Workers check Redis queues from highest to lowest priority (5→1) using BRPOP
