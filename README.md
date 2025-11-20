@@ -1,6 +1,6 @@
 # Task Queue API
 
-A distributed task-processing system built with the following main components: 1) REST API accepting task requests 2) priority queue broker 3) database storing task data 4) workers processing tasks asynchronously. This architecture is common in applications that need background processing like email services, webhook handling, or data exports.
+A case study of distributed task queue system using priority-based processing.
 
 ## Stack
 
