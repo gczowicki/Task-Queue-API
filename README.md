@@ -6,7 +6,7 @@ A case study of distributed task queue system using priority-based processing.
 
 - FastAPI - REST API
 - PostgreSQL - task metadata and results storage
-- Redis - priority queue broker (5 priority levels)
+- Redis - priority queue broker
 - SQLAlchemy - ORM
 - Docker - containerized PostgreSQL and Redis
 
