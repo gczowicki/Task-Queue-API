@@ -6,7 +6,7 @@ from datetime import datetime
 class TaskCreate(BaseModel):
     task_type: str
     input_data: dict
-    priority: int = Field(default=3, ge=1, le=5) 
+    priority: int = Field(default=3, ge=1, le=5)
 
 
 class TaskResponse(BaseModel):
@@ -18,6 +18,6 @@ class TaskResponse(BaseModel):
     priority: int
     created_at: datetime
     updated_at: Optional[datetime]
-    
+
     class Config:
         from_attributes = True
