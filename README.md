@@ -14,7 +14,7 @@ A case study of distributed task queue system using priority-based processing.
 
 1. POST request to API creates a task record in PostgreSQL
 2. Task ID is pushed to the appropriate Redis queue based on priority (1=lowest, 5=highest)
-3. Workers check Redis queues from highest to lowest priority (5 -> 1) using BRPOP
+3. Workers check Redis queues from highest to lowest priority using BRPOP
 4. Worker updates task status: PENDING -> RUNNING -> COMPLETED/FAILED
 5. Results are stored back in PostgreSQL
 
