@@ -67,7 +67,7 @@ Response:
   "task_type": "FibonacciTask",
   "status": "pending",
   "priority": 4,
-  "created_at": "2024-01-15T10:30:00"
+  "created_at": "1970-01-01T00:00:00"
 }
 ```
 ### Check task status
@@ -91,7 +91,7 @@ Response after processing:
 python demo.py --tasks 500 --workers 10
 ```
 
-### Basic database management
+### Database Commands
 ```bash
 python manage_db.py show 10
 python manage_db.py clear 100
